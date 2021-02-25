@@ -26,38 +26,45 @@ firebase.initializeApp(firebaseConfig);
 
 const Hello = () => {
   return (
-    <div>
-      <div className="Hello">
-        <img width="200px" alt="icon" src={icon} />
+    <body className="mainwindow">
+      <div>
+        <div className="topleft">
+          <section>
+            <h4>Compte</h4>
+          </section>
+        </div>
+
+        <div className="bottomleft">
+          <section>
+            <h4>Dossier de notes</h4>
+          </section>
+        </div>
+
+        <div className="middletop">
+          <section>
+            <h4>Notes favorites</h4>
+          </section>
+        </div>
+
+        <div className="middlebottom">
+          <section>
+            <h4>Toutes les notes</h4>
+          </section>
+        </div>
+
+        <div className="righttop">
+          <section>
+            <h4>Barre doutils</h4>
+          </section>
+        </div>
+
+        <div className="rightbottom">
+          <section>
+            <h4>Prise de notes</h4>
+          </section>
+        </div>
       </div>
-      <h1>electron-react-boilerplate</h1>
-      <div className="Hello">
-        <a
-          href="https://electron-react-boilerplate.js.org/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              📚
-            </span>
-            Read our docs
-          </button>
-        </a>
-        <a
-          href="https://github.com/sponsors/electron-react-boilerplate"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <button type="button">
-            <span role="img" aria-label="books">
-              🙏
-            </span>
-            Donate
-          </button>
-        </a>
-      </div>
-    </div>
+    </body>
   );
 };
 

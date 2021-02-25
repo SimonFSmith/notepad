@@ -3,3 +3,71 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 @import '~bootstrap/dist/css/bootstrap.css';
+
+body {
+  resize: both;
+  overflow: auto;
+}
+
+.topleft {
+  position: absolute;
+  top: 8px;
+  left: 2px;
+  font-size: 10px;
+  border-style: solid;
+  border-color: black;
+  color: black;
+  width: 30vh;
+  height: 20vh;
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 8px;
+  left: 2px;
+  font-size: 12px;
+  border-style: solid;
+  color: black;
+  width: 30vh;
+  height: 77vh;
+}
+
+.middletop {
+  position: absolute;
+  top: 8px;
+  text-align: center;
+  border-style: solid;
+  left: 31vh;
+  width: 40vh;
+  height: 35vh;
+}
+
+.middlebottom {
+  position: absolute;
+  bottom: 8px;
+  text-align: center;
+  border-style: solid;
+  left: 31vh;
+  width: 40vh;
+  height: 62vh;
+}
+
+.righttop {
+  position: absolute;
+  top: 8px;
+  text-align: center;
+  border-style: solid;
+  left: 72vh;
+  width: 77vh;
+  height: 10vh;
+}
+
+.rightbottom {
+  position: absolute;
+  bottom: 8px;
+  text-align: center;
+  border-style: solid;
+  left: 72vh;
+  width: 77vh;
+  height: 86vh;
+}
