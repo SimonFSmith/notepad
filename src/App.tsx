@@ -6,10 +6,8 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
-
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import icon from '../assets/icon.svg';
 import './App.global.css';
 
 // Your web app's Firebase configuration
@@ -26,44 +24,13 @@ firebase.initializeApp(firebaseConfig);
 
 const Hello = () => {
   return (
-    <body className="mainwindow">
-      <div>
-        <div className="topleft">
-          <section>
-            <h4>Compte</h4>
-          </section>
-        </div>
-
-        <div className="bottomleft">
-          <section>
-            <h4>Dossier de notes</h4>
-          </section>
-        </div>
-
-        <div className="middletop">
-          <section>
-            <h4>Notes favorites</h4>
-          </section>
-        </div>
-
-        <div className="middlebottom">
-          <section>
-            <h4>Toutes les notes</h4>
-          </section>
-        </div>
-
-        <div className="righttop">
-          <section>
-            <h4>Barre doutils</h4>
-          </section>
-        </div>
-
-        <div className="rightbottom">
-          <section>
-            <h4>Prise de notes</h4>
-          </section>
-        </div>
-      </div>
+    <body className="container">
+      <div className="Compte">Compte</div>
+      <div className="Dossier">Dossier notes</div>
+      <div className="favorites">Notes favorites</div>
+      <div className="Toutes">Toutes les notes</div>
+      <div className="Barre">Barre doutils</div>
+      <div className="Ecrire">Ecrire notes</div>
     </body>
   );
 };

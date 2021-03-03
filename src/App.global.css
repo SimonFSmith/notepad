@@ -4,70 +4,58 @@
  */
 @import '~bootstrap/dist/css/bootstrap.css';
 
-body {
-  resize: both;
+div {
   overflow: auto;
+  margin: 5px;
 }
 
-.topleft {
+body,
+.container {
+  column-fill: auto;
+  column-count: 3;
   position: absolute;
-  top: 8px;
-  left: 2px;
-  font-size: 10px;
-  border-style: solid;
-  border-color: black;
-  color: black;
-  width: 30vh;
+  background-color: white;
+  display: grid;
+}
+
+.Compte {
+  border: solid black;
+  grid-column: 1;
+  grid-row: 1;
   height: 20vh;
+  width: 20vh;
+}
+.Dossier {
+  border: solid black;
+  grid-column: 1;
+  grid-row: 2;
+  height: 75vh;
+  width: 20vh;
 }
 
-.bottomleft {
-  position: absolute;
-  bottom: 8px;
-  left: 2px;
-  font-size: 12px;
-  border-style: solid;
-  color: black;
-  width: 30vh;
-  height: 77vh;
+.favorites {
+  border: solid black;
+  grid-column: 2;
+  grid-row: 1;
+  height: 20vh;
+  width: 20vh;
+}
+.Toutes {
+  border: solid black;
+  grid-column: 2;
+  grid-row: 2;
+  height: 75vh;
+  width: 20vh;
+}
+.Barre {
+  border: solid black;
+  grid-column: 3;
+  grid-row: 1;
+  width: 90vh;
 }
 
-.middletop {
-  position: absolute;
-  top: 8px;
-  text-align: center;
-  border-style: solid;
-  left: 31vh;
-  width: 40vh;
-  height: 35vh;
-}
-
-.middlebottom {
-  position: absolute;
-  bottom: 8px;
-  text-align: center;
-  border-style: solid;
-  left: 31vh;
-  width: 40vh;
-  height: 62vh;
-}
-
-.righttop {
-  position: absolute;
-  top: 8px;
-  text-align: center;
-  border-style: solid;
-  left: 72vh;
-  width: 77vh;
-  height: 10vh;
-}
-
-.rightbottom {
-  position: absolute;
-  bottom: 8px;
-  text-align: center;
-  border-style: solid;
-  left: 72vh;
-  width: 77vh;
-  height: 86vh;
+.Ecrire {
+  border: solid black;
+  grid-column: 3;
+  grid-row: 2;
 }
