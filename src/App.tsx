@@ -30,7 +30,21 @@ const Hello = () => {
       <div className="favorites">Notes favorites</div>
       <div className="Toutes">Toutes les notes</div>
       <div className="Barre">Barre doutils</div>
-      <div className="Ecrire">Ecrire notes</div>
+      <div className="Ecrire">
+
+        <div className="form-group">
+          <label htmlFor="exampleFormControlTextarea1">Espace pour entrer la note</label>
+          <textarea className="form-control" id="exampleFormControlTextarea1"></textarea>
+        </div>
+
+        <div className="text-right">
+            <button className="btn btn-danger mr-2 rounded">Annuler</button>
+            <button className="btn btn-success ml-2 rounded">Sauvegarder</button>
+        </div>
+
+
+
+      </div>
     </body>
   );
 };
