@@ -1,12 +1,11 @@
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
 import firebase from 'firebase/app';
-
 // Add the Firebase services that you want to use
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
-import React from 'react';
+import React, { FC } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.global.css';
 
@@ -22,7 +21,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const Hello = () => {
+const Hello: FC = () => {
   return (
     <body className="container">
       <div className="Compte">Compte</div>
