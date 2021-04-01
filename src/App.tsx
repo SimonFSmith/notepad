@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { getHeapSnapshot } from 'v8';
 import './App.global.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
+import { rootCertificates } from 'tls';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -35,6 +36,8 @@ let ref = firebase.database().ref('notes')
 ref.on('value', (snapshot) => {
   console.log(snapshot.val());
 })
+
+
 
 const Hello = () => {
   return (
@@ -89,6 +92,7 @@ const Hello = () => {
       </div>
 
       <div className="Barre">
+        {/* Bouton gras */}
         <button type="button" className="btn btn-light">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-type-bold" viewBox="0 0 16 16">
             <path d="M8.21 13c2.106 0 3.412-1.087 3.412-2.823 0-1.306-.984-2.283-2.324-2.386v-.055a2.176 2.176 0 0 0 1.852-2.14c0-1.51-1.162-2.46-3.014-2.46H3.843V13H8.21zM5.908 4.674h1.696c.963 0 1.517.451 1.517 1.244 0 .834-.629 1.32-1.73 1.32H5.908V4.673zm0 6.788V8.598h1.73c1.217 0 1.88.492 1.88 1.415 0 .943-.643 1.449-1.832 1.449H5.907z"/>
@@ -139,17 +143,7 @@ const Hello = () => {
         </div>
       </div>
 
-      <div className="Ecrire">
-        <div className="form-group">
-          <input type="text" className="form-control" placeholder="Titre de la note" aria-label="Username" aria-describedby="basic-addon1"></input>
-          <br/>
-          <textarea className="form-control" placeholder="Corps de la note" id="exampleFormControlTextarea1"></textarea>
-        </div>
-        <div className="text-right">
-            <button className="btn btn-danger mr-2 rounded">Annuler</button>
-            <button className="btn btn-success ml-2 rounded" id="bouton_sauvegarde">Sauvegarder</button>
-        </div>
-      </div>
+
 
     </body>
   );
