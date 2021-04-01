@@ -14,5 +14,10 @@
     "postinstall": "yarn electron-rebuild"
   },
   "license": "MIT",
-  "dependencies": {}
+  "devDependencies": {
+    "@types/bootstrap": "^5.0.12"
+  },
+  "dependencies": {
+    "react-router-dom": "^5.2.0"
+  }
 }
