@@ -30,8 +30,7 @@ else {
   firebase.app();
 }
 
-let db = firebase.database();
-let ref = db.ref('notes')
+let ref = firebase.database().ref('notes')
 
 ref.on('value', (snapshot) => {
   console.log(snapshot.val());
