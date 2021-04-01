@@ -12,6 +12,7 @@ import { getHeapSnapshot } from 'v8';
 import './App.global.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import { rootCertificates } from 'tls';
+import TextEditor from './components/note_editor';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -143,7 +144,7 @@ const Hello = () => {
         </div>
       </div>
 
-
+      <TextEditor />
 
     </body>
   );
