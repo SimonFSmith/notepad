@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
+import { networkInterfaces } from 'os';
 
 class TextEditor extends Component {
 
@@ -31,9 +32,8 @@ class TextEditor extends Component {
       body: this.state.noteCorps
     }
 
-    var updates = {};
-    updates['notes/1'] = postData;
-    firebase.database().ref().update(updates);
+    var dbRef = firebase.database().ref();
+    dbRef.push(postData);
 
     this.setState({noteTitre: ""});
     this.setState({noteCorps: ""});
