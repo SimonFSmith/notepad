@@ -2,22 +2,37 @@ import React, { Component } from 'react';
 
 class TextEditor extends Component {
 
-constructor(props) {
-  super(props);
-  this.state = {value: ''};
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: '',
+      noteTitre: '',
+      noteCorps: ''
+    };
 
-  this.handleChange = this.handleChange.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
-}
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearInput = this.clearInput.bind(this);
+  }
 
-handleChange(event) {
-  this.setState({value: event.target.value});
-}
+  handleTitleChange(event) {
+    this.setState({noteTitre: event.target.value});
+  }
 
-handleSubmit(event) {
-  alert('Le titre a été soumis : ' + this.state.value);
-  event.preventDefault();
-}
+  handleBodyChange(event) {
+    this.setState({noteCorps: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('Titre: ' + this.state.noteTitre + '\nCorps: ' + this.state.noteCorps);
+    event.preventDefault();
+  }
+
+  clearInput() {
+    this.setState({noteTitre: ""});
+    this.setState({noteCorps: ""});
+  }
 
   render() {
     return (
@@ -29,8 +44,8 @@ handleSubmit(event) {
             name="noteTitre"
             className="form-control"
             placeholder="Titre de la note"
-            value={this.state.value}
-            onChange={this.handleChange} />
+            value={this.state.noteTitre}
+            onChange={this.handleTitleChange} />
 
           <br/>
 
@@ -39,7 +54,8 @@ handleSubmit(event) {
             name="noteCorps"
             className="form-control"
             placeholder="Corps de la note"
-            onChange={event => console.log(event)} />
+            value={this.state.noteCorps}
+            onChange={this.handleBodyChange} />
 
         </div>
 
@@ -47,12 +63,14 @@ handleSubmit(event) {
 
           {/* Bouton d'annulation */}
           <button
+            onClick={this.clearInput}
             className="btn btn-danger mr-2 rounded">
               Annuler
           </button>
 
           {/* Bouton de sauvegarde */}
           <button
+            onClick={this.handleSubmit}
             className="btn btn-success ml-2 rounded"
             id="bouton_sauvegarde">
               Sauvegarder
