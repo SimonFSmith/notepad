@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from 'firebase/app';
 
 class TextEditor extends Component {
 
@@ -25,8 +26,19 @@ class TextEditor extends Component {
   }
 
   handleSubmit(event) {
-    alert('Titre: ' + this.state.noteTitre + '\nCorps: ' + this.state.noteCorps);
-    event.preventDefault();
+    let postData = {
+      title: this.state.noteTitre,
+      body: this.state.noteCorps
+    }
+
+    var updates = {};
+    updates['notes/1'] = postData;
+    firebase.database().ref().update(updates);
+
+    this.setState({noteTitre: ""});
+    this.setState({noteCorps: ""});
+
+    alert("Note sauvegardée!")
   }
 
   clearInput() {
