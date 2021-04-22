@@ -95,4 +95,3 @@ class TextEditor extends Component {
 }
 
 export default TextEditor;
-
