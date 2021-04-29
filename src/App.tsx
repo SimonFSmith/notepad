@@ -43,9 +43,9 @@ ref.on('value', (snapshot) => {
 
 const Hello = () => {
   return (
-    <body className="container">
+    <div className="note_page">
 
-      <div className="Compte">
+      <div className="account">
         <button type="button" className="btn btn-light">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-gear" viewBox="0 0 16 16">
             <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -57,7 +57,7 @@ const Hello = () => {
         </div>
       </div>
 
-      <div className="Dossier">
+      <div className="folders">
         <button type="button" className="btn btn-light">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-plus" viewBox="0 0 16 16">
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -87,7 +87,7 @@ const Hello = () => {
 
       <AllNotes />
 
-      <div className="Barre">
+      <div className="tools">
         {/* Bouton gras */}
         <button type="button" className="btn btn-light">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-type-bold" viewBox="0 0 16 16">
@@ -141,7 +141,7 @@ const Hello = () => {
 
       <TextEditor />
 
-    </body>
+    </div>
   );
 };
 

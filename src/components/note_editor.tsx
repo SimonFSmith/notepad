@@ -48,7 +48,7 @@ class TextEditor extends Component {
 
   render() {
     return (
-      <div className="Ecrire">
+      <div className="writing">
         <div className="form-group">
 
           {/* Titre */}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
+import SingleNote from './single_note';
 
 class AllNotes extends Component {
 
@@ -7,8 +8,10 @@ class AllNotes extends Component {
     super(props);
     this.state = {
       notes : [],
-      selected_note_key : ""
+      selected_key : ""
     };
+
+    this.onNoteClick = this.onNoteClick.bind(this);
   }
 
   componentDidMount() {
@@ -23,16 +26,20 @@ class AllNotes extends Component {
         notes.push(note)
       });
       notes.forEach(note => {
-        note.body = note.body.substring(0, 30)
+        note.body = note.body.substring(0, 30) + "..."
       })
       this.setState({ notes: notes });
     });
   }
 
+  onNoteClick(number : string) {
+    this.setState({ selected_key: number})
+  }
+
   render() {
     return (
-      <div className="Toutes">
-
+      <div className="all_notes">
+        <div className="list-group">
         {/* Bouton de création d'une nouvelle note
         <button
           type="button"
@@ -48,32 +55,23 @@ class AllNotes extends Component {
             </svg>
         </button>*/}
 
-          {this.state.notes.map(data => {
+          {this.state.notes.map(note => {
             return(
 
-              //<NoteCarte key = {data.key} title = {data.title} body = {body.title} />
+              <a href="#" className={"list-group-item list-group-item-action" + (this.state.selected_key == note.key ? " active" : "")}>
+                <SingleNote number = {note.key} title = {note.title} body = {note.body} onNoteClick = {this.onNoteClick}/>
+              </a>
 
-              <div className="list-group">
-                <a href="#" className={"list-group-item list-group-item-action" + (this.state.selected_note_key == data.key ? " active" : "")} aria-current={(this.state.selected_note_key == data.key ? "true" : "false")}>
-                  <div className="d-flex w-100 justify-content-between">
-                    <h5 className="mb-1">{data.title}</h5>
-                  </div>
-                  <p className="mb-1">{data.body}</p>
-                </a>
-              </div>
+              /*
+               {"list-group-item list-group-item-action" + (this.state.selected_note_key == data.key ? " active" : "")} aria-current={(this.state.selected_note_key == data.key ? "true" : "false")}>
+              */
 
             )
           })}
-
-
+        </div>
       </div>
     );
   }
 }
 
 export default AllNotes;
-
-/*
-{data.title}
-{data.body}
-*/
