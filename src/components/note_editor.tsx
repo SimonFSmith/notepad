@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
-import { networkInterfaces } from 'os';
 
 class TextEditor extends Component {
 
@@ -16,14 +15,15 @@ class TextEditor extends Component {
     this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearInput = this.clearInput.bind(this);
+    this.setTitleAndBody = this.setTitleAndBody.bind(this);
   }
 
   handleTitleChange(event) {
-    this.setState({noteTitre: event.target.value});
+    this.setState({...this.state, noteTitre: event.target.value});
   }
 
   handleBodyChange(event) {
-    this.setState({noteCorps: event.target.value});
+    this.setState({...this.state, noteCorps: event.target.value});
   }
 
   handleSubmit(event) {
@@ -44,6 +44,13 @@ class TextEditor extends Component {
   clearInput() {
     this.setState({noteTitre: ""});
     this.setState({noteCorps: ""});
+  }
+
+  setTitleAndBody(result) {
+    setTimeout(() => {
+      this.setState({noteTitre: result.title})
+      this.setState({noteCorps: result.body})
+    }, 100)
   }
 
   render() {
@@ -76,7 +83,7 @@ class TextEditor extends Component {
           {/* Bouton d'annulation */}
           <button
             onClick={this.clearInput}
-            className="btn btn-danger mr-2 rounded">
+            className="btn btn-danger ml-2 rounded">
               Annuler
           </button>
 
@@ -86,6 +93,14 @@ class TextEditor extends Component {
             className="btn btn-success ml-2 rounded"
             id="bouton_sauvegarde">
               Sauvegarder
+          </button>
+
+          {/* Bouton de création d'une nouvelle note */}
+          <button
+            onClick={this.clearInput}
+            className="btn btn-primary ml-2 rounded"
+            id="bouton_sauvegarde">
+              Nouvelle note
           </button>
 
         </div>
