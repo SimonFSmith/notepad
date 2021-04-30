@@ -37,8 +37,6 @@ class TextEditor extends Component {
 
     this.setState({noteTitre: ""});
     this.setState({noteCorps: ""});
-
-    alert("Note sauvegardée!")
   }
 
   clearInput() {
@@ -62,7 +60,7 @@ class TextEditor extends Component {
           <input
             name="noteTitre"
             className="form-control"
-            placeholder="Titre de la note"
+            placeholder="Titre"
             value={this.state.noteTitre}
             onChange={this.handleTitleChange} />
 
@@ -72,13 +70,21 @@ class TextEditor extends Component {
           <textarea
             name="noteCorps"
             className="form-control"
-            placeholder="Corps de la note"
+            placeholder="Contenu"
             value={this.state.noteCorps}
             onChange={this.handleBodyChange} />
 
         </div>
 
         <div className="text-right">
+
+          {/* Bouton de création d'une nouvelle note */}
+          <button
+            onClick={this.clearInput}
+            className="btn btn-primary ml-2 rounded"
+            id="bouton_sauvegarde">
+              Nouvelle note
+          </button>
 
           {/* Bouton d'annulation */}
           <button
@@ -93,14 +99,6 @@ class TextEditor extends Component {
             className="btn btn-success ml-2 rounded"
             id="bouton_sauvegarde">
               Sauvegarder
-          </button>
-
-          {/* Bouton de création d'une nouvelle note */}
-          <button
-            onClick={this.clearInput}
-            className="btn btn-primary ml-2 rounded"
-            id="bouton_sauvegarde">
-              Nouvelle note
           </button>
 
         </div>
