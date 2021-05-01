@@ -15,11 +15,11 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import './App.global.css';
 
-import Register from "./Register";
-import notePad from './notePad';
+import Register from "./Component/Register";
+import noteApp from './Component/noteApp';
 
 
 // Your web app's Firebase configuration
@@ -38,16 +38,15 @@ if(firebase.apps.length===0){
   firebase.app();
 }
 
-
  function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={Register} />
-        <Route path= "/Register" component={Register}/>
-        ­<Route path="/notePad" component={notePad}/>
-      </Switch>
+        <Route  path="/" component={Register} />
+        ­<Route  path="/noteApp" component={noteApp}/>
+        </Switch>
     </Router>
+
   );
 }
 

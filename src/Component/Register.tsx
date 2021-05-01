@@ -7,8 +7,8 @@
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import noteApp from './notePad';
+import { useHistory } from 'react-router-dom';
+import noteApp from './noteApp';
 import firebase from 'firebase';
 
 
@@ -46,7 +46,10 @@ class Register extends React.Component<RegisterProps, RegisterState> {
   connectionClick(){
 
     firebase.auth().signInWithEmailAndPassword(this.state.adresse,this.state.password)
-    .then((userCredential) => {
+    .then((_userCredential) => {
+      const history = useHistory()
+
+      history.push('/noteApp')
 
       //CONNECTION REUSSI FAIT DE QUOI POUR PASSER A LA PROCHAINE PAGE
       //Utiliser les routes pour passer à la page de l'app.
@@ -112,19 +115,16 @@ class Register extends React.Component<RegisterProps, RegisterState> {
                                type="checkbox"
                                onChange={() =>  this.setState({stayConnected: this.stayConnectedRef.current.checked})}></input></span></label><br/>
                       <div>
-                      <Link to="/notePad">
+
+
                       <input
                              type="submit"
                              name="submit"
                              className="btn btn-info "
                              value="Conncter"
-                             onClick={this.connectionClick}
-                             />
-                      </Link>
+                             onClick={this.connectionClick} />
+
                       </div>
-
-
-
                     </div>
                     <div id="register-link" className="text-right">
                       <a href="#" className="text-info">Créer un compte</a>

@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './notepad.css';
+import '../noteApp.css';
 
 
 export interface noteAppProps {
