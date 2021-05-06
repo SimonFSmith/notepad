@@ -18,6 +18,11 @@ class NotePad extends React.Component<NotePadProps, NotePadState> {
     this.textRef = React.createRef();
 
     this.onNoteChanged = this.onNoteChanged.bind(this)
+    this.onDeleteRequest = this.onDeleteRequest.bind(this)
+  }
+
+  onDeleteRequest() {
+    firebase.database().ref("/" + this.state.selected_note).remove()
   }
 
   onNoteChanged(noteKey : String) {
@@ -134,7 +139,7 @@ class NotePad extends React.Component<NotePadProps, NotePadState> {
         </div>
       </div>
 
-      <TextEditor ref = {this.textRef}/>
+      <TextEditor ref = {this.textRef} onDeleteButtonClick = {this.onDeleteRequest}/>
 
     </div>
   );
