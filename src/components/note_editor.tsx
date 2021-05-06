@@ -16,6 +16,7 @@ class TextEditor extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearInput = this.clearInput.bind(this);
     this.setTitleAndBody = this.setTitleAndBody.bind(this);
+    this.deleteNote = this.deleteNote.bind(this);
   }
 
   handleTitleChange(event) {
@@ -37,6 +38,15 @@ class TextEditor extends Component {
 
     this.setState({noteTitre: ""});
     this.setState({noteCorps: ""});
+  }
+
+  deleteNote() {
+    if (confirm("Voulez-vous vraiment supprimer cette note?")) {
+      this.props.onDeleteButtonClick()
+      window.location.reload()
+    } else {
+
+    }
   }
 
   clearInput() {
@@ -91,6 +101,13 @@ class TextEditor extends Component {
             onClick={this.clearInput}
             className="btn btn-danger ml-2 rounded">
               Annuler
+          </button>
+
+          {/* Bouton de suppression */}
+          <button
+            onClick={this.deleteNote}
+            className="btn btn-danger ml-2 rounded">
+              Supprimer
           </button>
 
           {/* Bouton de sauvegarde */}
