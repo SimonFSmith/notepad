@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import SingleNote from './single_note';
-import TextEditor from './note_editor';
 
 class AllNotes extends Component {
 
@@ -39,17 +38,15 @@ class AllNotes extends Component {
   render() {
     return (
       <div className="all_notes">
-        <div className="list-group">
-          {this.state.notes.map(note => {
-            return(
-              <>
-                <a href="#" className={"list-group-item list-group-item-action" + (this.state.selected_key == note.key ? " active" : "")}>
-                  <SingleNote number={note.key} title={note.title} body={note.body.substring(0, 30) + "..."} onNoteClick={this.onNoteClick} />
-                </a>
-              </>
-            )
-          })}
-        </div>
+        {this.state.notes.map(note => {
+          return(
+            <>
+              <a href="#" className={(this.state.selected_key == note.key ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action")}>
+                <SingleNote number={note.key} title={note.title} body={note.body.substring(0, 100) + "..."} onNoteClick={this.onNoteClick} />
+              </a>
+            </>
+          )
+        })}
       </div>
     );
   }

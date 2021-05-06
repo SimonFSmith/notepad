@@ -33,8 +33,7 @@ class TextEditor extends Component {
       body: this.state.noteCorps
     }
 
-    var dbRef = firebase.database().ref();
-    dbRef.push(postData);
+    firebase.database().ref().push(postData);
 
     this.setState({noteTitre: ""});
     this.setState({noteCorps: ""});
@@ -64,61 +63,63 @@ class TextEditor extends Component {
   render() {
     return (
       <div className="writing">
-        <div className="form-group">
 
-          {/* Titre */}
-          <input
-            name="noteTitre"
-            className="form-control"
-            placeholder="Titre"
-            value={this.state.noteTitre}
-            onChange={this.handleTitleChange} />
+        {/* Titre */}
+        <input
+          name="noteTitre"
+          className="form-control"
+          placeholder="Titre"
+          value={this.state.noteTitre}
+          onChange={this.handleTitleChange} />
 
-          <br/>
+        <br/>
 
-          {/* Corps */}
-          <textarea
-            name="noteCorps"
-            className="form-control"
-            placeholder="Contenu"
-            value={this.state.noteCorps}
-            onChange={this.handleBodyChange} />
+        {/* Corps */}
+        <textarea
+          name="noteCorps"
+          className="form-control"
+          id="note_corps"
+          placeholder="Contenu"
+          value={this.state.noteCorps}
+          onChange={this.handleBodyChange} />
 
-        </div>
-
-        <div className="text-right">
-
+        <div className="boutons_gauche">
           {/* Bouton de création d'une nouvelle note */}
           <button
             onClick={this.clearInput}
-            className="btn btn-primary ml-2 rounded"
+            className="btn btn-dark"
             id="bouton_sauvegarde">
               Nouvelle note
           </button>
+        </div>
 
-          {/* Bouton d'annulation */}
-          <button
-            onClick={this.clearInput}
-            className="btn btn-danger ml-2 rounded">
-              Annuler
-          </button>
-
+        <div className="boutons_milieu">
           {/* Bouton de suppression */}
           <button
             onClick={this.deleteNote}
-            className="btn btn-danger ml-2 rounded">
+            className="btn btn-dark"
+            id="boutton_supprimer">
               Supprimer
+          </button>
+        </div>
+
+        <div className="boutons_droite">
+          {/* Bouton d'annulation */}
+          <button
+            onClick={this.clearInput}
+            className="btn btn-dark">
+              Annuler
           </button>
 
           {/* Bouton de sauvegarde */}
           <button
             onClick={this.handleSubmit}
-            className="btn btn-success ml-2 rounded"
+            className="btn btn-dark"
             id="bouton_sauvegarde">
               Sauvegarder
           </button>
-
         </div>
+
       </div>
     );
   }
