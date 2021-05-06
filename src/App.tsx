@@ -45,6 +45,17 @@ if(firebase.apps.length===0){
  function App() {
   return (
   <Router >
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Register</Link>
+          </li>
+          <li>
+          <Link to="/notePad">notePad</Link>
+          </li>
+        </ul>
+      </nav>
+
     <Switch>
 
      <Route path="/" exact component={Register}/>

@@ -48,10 +48,10 @@ class Register extends React.Component<RegisterProps, RegisterState> {
     firebase.auth().signInWithEmailAndPassword(this.state.adresse,this.state.password)
     .then((userCredential) => {
 
-
+      console.log("1")
 
       this.props.history.push("/notePad")
-
+      console.log("2")
 
 
 

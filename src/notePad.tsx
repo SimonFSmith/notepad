@@ -3,7 +3,9 @@
 /* eslint-disable react/button-has-type */
 
 import React from 'react';
+import { useHistory } from 'react-router';
 import './notepad.css';
+import Register from './Register';
 
 
 export interface noteAppProps {
@@ -19,6 +21,11 @@ class noteApp extends React.Component<noteAppProps, noteAppState> {
     super(props);
     this.state = {  };
   }
+
+
+
+
+
   render() {
     return (
 
@@ -37,7 +44,9 @@ class noteApp extends React.Component<noteAppProps, noteAppState> {
           </svg>
 
           <div>
-            <a href="#">Déconnexion</a>
+            <a href="#"
+
+            >Déconnexion</a>
           </div>
         </div>
 
