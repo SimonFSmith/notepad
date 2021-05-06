@@ -3,7 +3,6 @@
 /* eslint-disable react/button-has-type */
 
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './notepad.css';
 
 
@@ -22,6 +21,7 @@ class noteApp extends React.Component<noteAppProps, noteAppState> {
   }
   render() {
     return (
+
       <body className="container">
         <div className="Compte">
           <svg
@@ -230,6 +230,7 @@ class noteApp extends React.Component<noteAppProps, noteAppState> {
           </div>
         </div>
       </body>
+
     );
   }
 }
