@@ -42,7 +42,7 @@ class AllNotes extends Component {
           return(
             <>
               <a href="#" className={(this.state.selected_key == note.key ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action")}>
-                <SingleNote number={note.key} title={note.title} body={note.body.substring(0, 100) + "..."} onNoteClick={this.onNoteClick} />
+                <SingleNote number={note.key} title={note.title} body={note.body.substring(0, 200) + "..."} onNoteClick={this.onNoteClick} />
               </a>
             </>
           )
