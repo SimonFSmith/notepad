@@ -42,7 +42,7 @@ class NotePad extends React.Component<NotePadProps, NotePadState> {
 
       <>
 
-      <NoteFolders />
+
 
       <AllNotes onNoteChanged={this.onNoteChanged} />
 

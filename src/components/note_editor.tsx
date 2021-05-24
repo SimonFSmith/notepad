@@ -87,8 +87,7 @@ class TextEditor extends Component {
           {/* Bouton de création d'une nouvelle note */}
           <button
             onClick={this.clearInput}
-            className="btn btn-dark"
-            id="bouton_sauvegarde">
+            className="btn btn-dark">
               Nouvelle note
           </button>
         </div>
