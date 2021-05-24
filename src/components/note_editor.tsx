@@ -10,7 +10,6 @@ class TextEditor extends Component {
       noteTitre: '',
       noteCorps: ''
     };
-
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,9 +31,7 @@ class TextEditor extends Component {
       title: this.state.noteTitre,
       body: this.state.noteCorps
     }
-
     firebase.database().ref().push(postData);
-
     this.setState({noteTitre: ""});
     this.setState({noteCorps: ""});
   }
@@ -63,7 +60,6 @@ class TextEditor extends Component {
   render() {
     return (
       <div className="writing">
-
         {/* Titre */}
         <input
           name="noteTitre"
@@ -71,9 +67,7 @@ class TextEditor extends Component {
           placeholder="Titre"
           value={this.state.noteTitre}
           onChange={this.handleTitleChange} />
-
         <br/>
-
         {/* Corps */}
         <textarea
           name="noteCorps"
@@ -82,7 +76,6 @@ class TextEditor extends Component {
           placeholder="Contenu"
           value={this.state.noteCorps}
           onChange={this.handleBodyChange} />
-
         <div className="boutons_gauche">
           {/* Bouton de création d'une nouvelle note */}
           <button
@@ -91,7 +84,6 @@ class TextEditor extends Component {
               Nouvelle note
           </button>
         </div>
-
         <div className="boutons_milieu">
           {/* Bouton de suppression */}
           <button
@@ -101,7 +93,6 @@ class TextEditor extends Component {
               Supprimer
           </button>
         </div>
-
         <div className="boutons_droite">
           {/* Bouton d'annulation */}
           <button
@@ -109,7 +100,6 @@ class TextEditor extends Component {
             className="btn btn-dark">
               Annuler
           </button>
-
           {/* Bouton de sauvegarde */}
           <button
             onClick={this.handleSubmit}
@@ -118,7 +108,6 @@ class TextEditor extends Component {
               Sauvegarder
           </button>
         </div>
-
       </div>
     );
   }

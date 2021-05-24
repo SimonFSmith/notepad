@@ -2,7 +2,6 @@ import React from 'react';
 import TextEditor from './note_editor';
 import AllNotes from './display_all_notes';
 import firebase from 'firebase/app';
-import NoteFolders from './note_folders';
 
 export interface NotePadState {
   selected_note : String
@@ -13,7 +12,6 @@ class NotePad extends React.Component<NotePadProps, NotePadState> {
     super(props);
     this.state = { selected_note : "" };
     this.textRef = React.createRef();
-
     this.onNoteChanged = this.onNoteChanged.bind(this)
     this.onDeleteRequest = this.onDeleteRequest.bind(this)
   }
@@ -39,17 +37,10 @@ class NotePad extends React.Component<NotePadProps, NotePadState> {
 
   render() {
     return (
-
       <>
-
-
-
       <AllNotes onNoteChanged={this.onNoteChanged} />
-
       <TextEditor ref={this.textRef} onDeleteButtonClick={this.onDeleteRequest} />
-
       </>
-
   );
   }
 }

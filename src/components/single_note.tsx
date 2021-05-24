@@ -9,7 +9,6 @@ class SingleNote extends React.Component {
       title : "",
       body : ""
     };
-
     this.state.key = this.props.number
     this.state.title = this.props.title
     this.state.body = this.props.body
@@ -30,7 +29,6 @@ class SingleNote extends React.Component {
       </div>
     )
   }
-
 }
 
 export default SingleNote;

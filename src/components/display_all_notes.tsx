@@ -10,7 +10,6 @@ class AllNotes extends Component {
       notes : [],
       selected_key : ""
     };
-
     this.onNoteClick = this.onNoteClick.bind(this);
   }
 
