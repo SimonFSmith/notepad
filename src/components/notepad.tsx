@@ -3,6 +3,7 @@ import TextEditor from './note_editor';
 import AllNotes from './display_all_notes';
 import firebase from 'firebase/app';
 
+
 export interface NotePadState {
   selected_note : String
 }

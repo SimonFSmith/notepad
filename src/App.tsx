@@ -3,12 +3,18 @@ import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from "react-router-dom"
 import './App.global.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
+import { Container } from 'react-bootstrap';
+import { AuthProvider } from './contexts/AuthContext';
+import Login from './Login';
+import Signup from './Signup';
 import NotePad from './components/notepad';
 
-// Configuration de Firebase
+
+
+
 const firebaseConfig = {
   apiKey: 'AIzaSyCuFSYdHSVVgM7Ai2bgwf2bLTnS6y1_KZM',
   authDomain: 'application-notes-6dde3.firebaseapp.com',
@@ -26,12 +32,27 @@ else {
   firebase.app();
 }
 
-export default function App() {
+function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" component={NotePad} />
-      </Switch>
-    </Router>
-  );
+    <Container
+      className="d-flex align-items-center justify-content-center"
+      style={{ minHeight: "100vh" }}
+    >
+      <div className="w-100" style={{ maxWidth: "1500px" }}>
+        <Router>
+          <AuthProvider>
+            <Switch>
+              <Route path="/login" component={Login} />
+              <Route path="/notepad" component={NotePad}/>
+              <Route path="/" component={Signup} />
+            </Switch>
+          </AuthProvider>
+        </Router>
+      </div>
+    </Container>
+  )
 }
+
+export const auth = firebase.auth()
+
+export default App
